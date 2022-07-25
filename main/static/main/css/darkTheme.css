@@ -8,6 +8,10 @@ body, html {
     background: #373737;
 }
 
+.text {
+    text-align: center;
+}
+
 nav {
     box-sizing: content-box;
 }
@@ -61,13 +65,42 @@ nav li {
     display: inline-block;
     padding: 10px 25px;
     cursor: pointer;
-    background: #735255;
+    background: #866064;
     border-radius: 8px 0 0 8px;
     border: 0;
 }
 
 .theme-button:hover {
     color: white;
-    background: #866064;
+    background: #9d7176;
     border-radius: 8px 0 0 8px;
+}
+
+.news {
+    background: #866064;
+    color: #f4f4f4;
+    width: 500px;
+    border-radius: 8px;
+    margin: 0 0 0 10px;
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+}
+
+.new {
+    background: #d3adb1;
+    color: #111111;
+    border-radius: 8px;
+    text-align: justify;
+    text-align-last: center;
+    margin: 8px;
+    padding: 1px 10px;
+}
+
+.news-title {
+    text-align: center;
+}
+
+.all {
+    display: inline-flex;
 }

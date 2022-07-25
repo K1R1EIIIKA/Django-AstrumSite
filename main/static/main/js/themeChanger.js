@@ -1,18 +1,20 @@
-let activeTheme = localStorage.getItem("theme")
+let activeTheme = localStorage.getItem("theme");
 let theme = document.getElementById("theme-link");
+const light = "/static/main/css/lightTheme.css";
+const dark = "/static/main/css/darkTheme.css";
 
 function btn() {
-    if (theme.getAttribute("href") === "/static/main/css/darkTheme.css") {
-        theme.href = "/static/main/css/lightTheme.css";
-        localStorage.setItem("theme", "/static/main/css/lightTheme.css")
+    if (theme.getAttribute("href") === dark) {
+        theme.href = light;
+        localStorage.setItem("theme", light);
     } else {
-        theme.href = "/static/main/css/darkTheme.css";
-        localStorage.setItem("theme", "/static/main/css/darkTheme.css")
+        theme.href = dark;
+        localStorage.setItem("theme", dark);
     }
 }
 
 if (activeTheme === null) {
-    theme.href = "/static/main/css/lightTheme.css";
+    theme.href = light;
 } else {
-    theme.href = activeTheme
+    theme.href = activeTheme;
 }

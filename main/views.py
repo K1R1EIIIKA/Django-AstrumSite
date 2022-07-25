@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from .models import News
 
 
 def index(request):
-    return render(request, 'main/index.html')
+    news = News.objects.all()
+    return render(request, 'main/index.html', {'news': news})
 
 
 def shop(request):

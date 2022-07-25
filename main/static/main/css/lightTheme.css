@@ -7,6 +7,10 @@ body, html {
     background: #f4f4f4;
 }
 
+.text {
+    text-align: center;
+}
+
 nav {
     box-sizing: content-box;
 }
@@ -45,16 +49,16 @@ nav li {
 }
 
 .navbar a {
-    color: #727272;
+    color: #111111;
 }
 
 .navbar a:hover {
-    color: white;
+    color: #F4F4F4;
 }
 
 .theme-button {
     font: 18px 'Roboto', sans-serif;
-    color: #b2b2b2;
+    color: #111111;
     position: absolute;
     right: 0;
     display: inline-block;
@@ -66,7 +70,36 @@ nav li {
 }
 
 .theme-button:hover {
-    color: white;
+    color: #f4f4f4;
     background: #d28b94;
     border-radius: 8px 0 0 8px;
+}
+
+.news {
+    background: #EEA5AD;
+    color: #f4f4f4;
+    width: 500px;
+    border-radius: 8px;
+    margin: 0 0 0 10px;
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+}
+
+.new {
+    background: #e8dedf;
+    color: #111111;
+    border-radius: 8px;
+    text-align: justify;
+    text-align-last: center;
+    margin: 8px;
+    padding: 1px 10px;
+}
+
+.news-title {
+    text-align: center;
+}
+
+.all {
+    display: inline-flex;
 }

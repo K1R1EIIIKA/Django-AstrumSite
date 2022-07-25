@@ -4,9 +4,22 @@
 {% block title %}AstrumMine{% endblock %}
 
 {% block content %}
-    <h1>сру</h1>
-    <img src="{% static 'main/img/emoji.png' %}" alt="аааааа(((" height="500px">
-    <video autoplay loop muted height="500px">
-        <source src="https://images-ext-2.discordapp.net/external/gOwYj40mBwn2Q0tJvP8iVlt7i30pTyvnSDwxlsb_dRk/https/media.tenor.com/0d3BCMOGJSgAAAPo/cat-meow.mp4">
-    </video>
+    <h1 class="text">сру</h1>
+    <div class="all">
+        <img src="{% static 'main/img/emoji.png' %}" alt="аааааа(((" height="500px">
+        <video autoplay loop muted height="500px" style="margin: 0 5px">
+            <source src="https://images-ext-2.discordapp.net/external/gOwYj40mBwn2Q0tJvP8iVlt7i30pTyvnSDwxlsb_dRk/https/media.tenor.com/0d3BCMOGJSgAAAPo/cat-meow.mp4">
+        </video>
+
+        <div class="news">
+            <h1>Новости!!!</h1>
+            {% for element in news %}
+                <div class="new">
+                    <h2 class="news-title">{{ element.header }}</h2>
+                    <h5>{{ element.body }}</h5>
+                    <h6>{{ element.author }} {{ element.date }}</h6>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
