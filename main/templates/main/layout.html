@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="трш">
+    <meta name="keywords" content="пук пук">
+
+    <link rel="stylesheet" href="{% static 'main/css/darkTheme.css' %}" id="theme-link">
+
+    <link rel="icon" type="image/png" href="{% static 'main/img/emoji.png' %}">
+    <title>{% block title %}{% endblock %}</title>
+
+</head>
+<body>
+<nav class="nav-body">
+    <button onclick="btn()" class="theme-button">Сменить тему</button>
+    <ul class="navbar">
+        <li class="nav-list"><a class="nav-link" href="/">Главная</a></li>
+        <li class="nav-list"><a class="nav-link" href="/download">Скачать</a></li>
+        <li class="nav-list"><a class="nav-link" href="/shop">Магазин</a></li>
+        <li class="nav-list"><a class="nav-link" href="/about">О нас</a></li>
+        <li class="nav-list"><a class="nav-link" href="/admin">Админка</a></li>
+    </ul>
+</nav>
+{% block content %}
+{% endblock %}
+<script type="text/javascript" src="{% static 'main/js/themeChanger.js' %}"></script>
+</body>
+</html>
