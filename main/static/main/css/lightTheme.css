@@ -56,6 +56,10 @@ nav li {
     color: #F4F4F4;
 }
 
+.navbar {
+    margin: 0 0 10px 0;
+}
+
 .theme-button {
     font: 18px 'Roboto', sans-serif;
     color: #111111;
@@ -77,10 +81,11 @@ nav li {
 
 .news {
     background: #EEA5AD;
-    color: #f4f4f4;
+    color: #111111;
     width: 500px;
     border-radius: 8px;
     margin: 0 0 0 10px;
+    padding: 0 0 6px 0;
     display: inline-block;
     height: 100%;
     text-align: center;
@@ -102,4 +107,21 @@ nav li {
 
 .all {
     display: inline-flex;
+}
+
+.news-all {
+    background: #EEA5AD;
+    color: #111111;
+    width: 800px;
+    border-radius: 8px;
+    margin: 0 auto;
+    padding: 1px;
+    text-align: center;
+}
+
+.news a {
+    color: #111111;
+    text-decoration: none;
+    margin: 5px;
+    padding: 5px;
 }
