@@ -6,5 +6,7 @@ urlpatterns = [
     path('shop', views.shop),
     path('download', views.download),
     path('about', views.about),
-    path('news_all', views.news_all),
+    path('news', views.news),
+    path('news/create', views.create),
+    path('account', views.account),
 ]

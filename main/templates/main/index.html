@@ -13,17 +13,20 @@
 
         <div class="news">
             <h1>Последние новости</h1>
-
-            {% for element in news|list_cut_three %}
-                <div class="new">
-                    <h2 class="news-title">{{ element.header }}</h2>
-                    <h5>{{ element.body }}</h5>
-                    <h6>{{ element.author }} {{ element.date }}</h6>
-                </div>
-            {% endfor %}
+            {% if news %}
+                {% for element in news|list_cut_three %}
+                    <div class="new">
+                        <h2 class="news-title">{{ element.header }}</h2>
+                        <h5>{{ element.body }}</h5>
+                        <h6>{{ element.author }} {{ element.date }}</h6>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h3>Нет новостей</h3>
+            {% endif %}
             <h3>...</h3>
 
-            <a href="/news_all" class="nav-link">Все новости</a>
+            <a href="/news" class="nav-link">Все новости</a>
         </div>
     </div>
 

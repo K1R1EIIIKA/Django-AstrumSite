@@ -1,51 +1,22 @@
+/* ____ ___ _  _ ____ ____ */
+/* |  |  |  |__| |___ |__/ */
+/* |__|  |  |  | |___ |  \ */
+
 body, html {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    font-family: "Roboto", sans-serif;
     background: #f4f4f4;
 }
 
-.text {
-    text-align: center;
-}
-
-nav {
-    box-sizing: content-box;
-}
+/* _  _ ____ _  _ ___  ____ ____ */
+/* |\ | |__| |  | |__] |__| |__/ */
+/* | \| |  |  \/  |__] |  | |  \ */
 
 .nav-body {
     background: pink;
-    background-size: 100% 100%;
-    box-sizing: content-box;
 }
 
-nav a {
-    text-decoration: none;
-}
-
-nav ul {
-    margin: 0;
-    padding: 0;
-}
-
-nav li {
-    list-style-position: inside;
-    font: 18px 'Roboto', sans-serif;
-    padding: 10px;
-}
-
-.navbar li {
-    display: inline-block;
-    padding: 10px 30px;
-    margin: 0;
-}
-
-.navbar li:hover {
+.nav-link:hover {
     background: #e3abb5;
     color: #fff;
-    border-radius: 8px;
 }
 
 .navbar a {
@@ -56,72 +27,42 @@ nav li {
     color: #F4F4F4;
 }
 
-.navbar {
-    margin: 0 0 10px 0;
-}
-
 .theme-button {
-    font: 18px 'Roboto', sans-serif;
     color: #111111;
-    position: absolute;
-    right: 0;
-    display: inline-block;
-    padding: 10px 25px;
-    cursor: pointer;
     background: #eea5ad;
-    border-radius: 8px 0 0 8px;
-    border: 0;
 }
 
 .theme-button:hover {
     color: #f4f4f4;
     background: #d28b94;
-    border-radius: 8px 0 0 8px;
 }
+.account {
+    color: #111111;
+}
+.account:hover {
+    background: #e3abb5;
+    color: #f4f4f4;
+}
+
+/* _  _ ____ _ _ _ ____ */
+/* |\ | |___ | | | [__  */
+/* | \| |___ |_|_| ___] */
 
 .news {
     background: #EEA5AD;
     color: #111111;
-    width: 500px;
-    border-radius: 8px;
-    margin: 0 0 0 10px;
-    padding: 0 0 6px 0;
-    display: inline-block;
-    height: 100%;
-    text-align: center;
 }
 
 .new {
     background: #e8dedf;
     color: #111111;
-    border-radius: 8px;
-    text-align: justify;
-    text-align-last: center;
-    margin: 8px;
-    padding: 1px 10px;
-}
-
-.news-title {
-    text-align: center;
-}
-
-.all {
-    display: inline-flex;
 }
 
 .news-all {
     background: #EEA5AD;
     color: #111111;
-    width: 800px;
-    border-radius: 8px;
-    margin: 0 auto;
-    padding: 1px;
-    text-align: center;
 }
 
 .news a {
     color: #111111;
-    text-decoration: none;
-    margin: 5px;
-    padding: 5px;
 }

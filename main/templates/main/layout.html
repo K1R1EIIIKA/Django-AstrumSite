@@ -7,24 +7,38 @@
     <meta name="keywords" content="пук пук">
 
     <link rel="stylesheet" href="#" id="theme-link">
+    <link rel="stylesheet" href="{% static 'main/css/global.css' %}">
 
     <link rel="icon" type="image/png" href="{% static 'main/img/emoji.png' %}">
-    <title>{% block title %}{% endblock %}</title>
 
+    <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+
 <nav class="nav-body">
     <button onclick="btn()" class="theme-button">Сменить тему</button>
+
+    <a class="nav-account" href="/account">
+        <div class="account">
+            <img style="border-radius: 15px" src="{% static 'main/img/cute_cat.png' %}" alt="где котик(("
+                 height="35px" width="35px">
+            <p style="padding: 0 0 0 15px">Аккаунт</p>
+        </div>
+    </a>
     <ul class="navbar">
-        <li class="nav-list"><a class="nav-link" href="/">Главная</a></li>
-        <li class="nav-list"><a class="nav-link" href="/download">Скачать</a></li>
-        <li class="nav-list"><a class="nav-link" href="/shop">Магазин</a></li>
-        <li class="nav-list"><a class="nav-link" href="/about">О нас</a></li>
-        <li class="nav-list"><a class="nav-link" href="/admin">Админка</a></li>
+
+        <a class="nav-link" href="/">Главная</a>
+        <a class="nav-link" href="/download">Скачать</a>
+        <a class="nav-link" href="/shop">Магазин</a>
+        <a class="nav-link" href="/about">О нас</a>
+        <a class="nav-link" href="/admin">Админка</a>
+        {% block navbar %}
+        {% endblock %}
     </ul>
 </nav>
 {% block content %}
 {% endblock %}
 <script type="text/javascript" src="{% static 'main/js/themeChanger.js' %}"></script>
+
 </body>
 </html>

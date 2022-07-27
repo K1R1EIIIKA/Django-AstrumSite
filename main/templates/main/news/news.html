@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Новости{% endblock %}
+
+{% block navbar %}
+    <a class="nav-link" href="/news/create">Создать новость</a>
+{% endblock %}
+
+{% block content %}
+    <h1 class="text">Новости</h1>
+    <div class="news-all">
+        {% if news %}
+            {% for element in news %}
+                <div class="new">
+                    <h2 class="news-title">{{ element.header }}</h2>
+                    <h5>{{ element.body }}</h5>
+                    <h6>{{ element.author }} {{ element.date }}</h6>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h3>Нет новостей</h3>
+        {% endif %}
+    </div>
+{% endblock %}

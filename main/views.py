@@ -4,8 +4,8 @@ from django.template.defaulttags import register
 
 
 def index(request):
-    news = News.objects.all()
-    return render(request, 'main/index.html', {'news': news})
+    new = News.objects.order_by('-date')
+    return render(request, 'main/index.html', {'news': new})
 
 
 def shop(request):
@@ -20,9 +20,17 @@ def about(request):
     return render(request, 'main/about.html')
 
 
-def news_all(request):
-    news = News.objects.all()
-    return render(request, 'main/news_all.html', {'news': news})
+def news(request):
+    new = News.objects.order_by('-date')
+    return render(request, 'main/news/news.html', {'news': new})
+
+
+def create(request):
+    return render(request, 'main/news/create.html')
+
+
+def account(request):
+    return render(request, 'main/account.html')
 
 
 @register.filter
