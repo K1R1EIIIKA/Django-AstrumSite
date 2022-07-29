@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import News
 from django.template.defaulttags import register
+from .forms import NewsForm
 
 
 def index(request):
@@ -26,7 +27,21 @@ def news(request):
 
 
 def create(request):
-    return render(request, 'main/news/create.html')
+    error = ''
+    if request.method == 'POST':
+        form = NewsForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+        else:
+            error = 'Неверная форма'
+
+    form = NewsForm()
+    data = {
+        'form': form,
+        'error': error
+    }
+    return render(request, 'main/news/create.html', data)
 
 
 def account(request):

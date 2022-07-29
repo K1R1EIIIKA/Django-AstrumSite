@@ -9,11 +9,16 @@
 {% block content %}
     <h1 class="text">ну создавай че</h1>
     <form method="post">
-        <label>
-            <input type="text" placeholder="Заголовок новости" class="form-control"><br>
-            <input type="text" placeholder="Основной текст" class="form-control"><br>
-            <input type="date" class="form-control"><br>
-            <input type="time" class="form-control"><br>
-        </label>
+        <div class="form">
+            <label>
+                {{ form.header }}<br>
+                {{ form.body }}<br>
+                {{ form.date }}<br>
+                {{ form.author }}<br>
+                <span>{{ error }}</span>
+                <button class="btn-create" type="submit">Создать новость</button>
+                {% csrf_token %}
+            </label>
+        </div>
     </form>
 {% endblock %}
