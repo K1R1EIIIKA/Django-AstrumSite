@@ -44,10 +44,6 @@ def create(request):
     return render(request, 'main/news/create.html', data)
 
 
-def account(request):
-    return render(request, 'main/account.html')
-
-
 @register.filter
 def list_cut_three(value):
     return value[:3]
