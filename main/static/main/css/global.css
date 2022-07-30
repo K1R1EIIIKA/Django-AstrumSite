@@ -13,6 +13,7 @@ body, html {
 
 .text {
     text-align: center;
+    text-decoration: none;
 }
 
 /* _  _ ____ _  _ ___  ____ ____ */
@@ -132,6 +133,7 @@ nav li {
 }
 
 .form-control {
+    height: 22px;
     float: none;
     text-align: center;
     margin: -5px auto;
@@ -151,6 +153,39 @@ nav li {
 
 .btn-create {
     margin: -5px auto;
+    display: block;
+    border-radius: 8px;
+    font: 16px "Roboto", sans-serif;
+}
+
+/* ____ ____ ____ ____ _  _ _  _ ___ */
+/* |__| |    |    |  | |  | |\ |  |  */
+/* |  | |___ |___ |__| |__| | \|  |  */
+
+.form-account-control {
+    height: 22px;
+    text-align: center;
+    margin: 10px auto -5px auto;
+    display: block;
+    width: 400px;
+    border-radius: 8px;
+    font: 16px "Roboto", sans-serif;
+}
+
+.form-account {
+    padding: 5px 25px 10px 25px;
+    display: block;
+    margin: -5px auto;
+    border-radius: 8px;
+    width: 500px;
+}
+
+.form-control-text {
+    text-align: center;
+}
+
+.btn-account-create {
+    margin: -20px auto 0 auto;
     display: block;
     border-radius: 8px;
     font: 16px "Roboto", sans-serif;

@@ -14,7 +14,8 @@ class NewsForm(ModelForm):
             }),
             'body': Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': 'Основной текст'
+                'placeholder': 'Основной текст',
+                'style': 'height: 150px'
             }),
             'date': DateTimeInput(attrs={
                 'class': 'form-control',

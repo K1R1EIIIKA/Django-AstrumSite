@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+    <h1 class="text">Регистрируйся</h1>
+    <form method="POST" action="">
+        <div class="form-account">
+            {% csrf_token %}
+            <p class="form-control-text">Введите никнейм: <br>{{ form.username }}<br></p>
+            <p class="form-control-text">Email: <br>{{ form.email }}<br></p>
+            <p class="form-control-text">Пароль: <br>{{ form.password1 }}<br></p>
+            <p class="form-control-text">Повторите пароль: <br>{{ form.password2 }}<br></p>
+            <span style="margin: 10px; padding: 10px">{{ error }}</span>
+            <button class="btn-account-create" type="submit">Создать Аккаунт</button>
+            <p class="text">Уже есть аккаунт? <a class="text" style="color: #b2b2b2" href="/account/login">Войдите</a>
+            </p>
+        </div>
+    </form>
+{% endblock %}
