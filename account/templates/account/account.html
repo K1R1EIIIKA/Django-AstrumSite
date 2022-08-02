@@ -4,10 +4,16 @@
 
 {% block content %}
     <h1 class="text">срофиль</h1>
-    <p class="text">
-        Вы не вошли в аккаунт!!!
-        <a class="text" style="color: #b2b2b2" href="/account/login">Войдите</a>
-        или
-        <a class="text" style="color: #b2b2b2" href="/account/register">Создайте новый</a>
-    </p>
+    {% if user.is_authenticated %}
+        <h1>Привет, {{ user.username }}</h1>
+        <a href="{% url 'logout' %}">Выйти из аккаунта</a>
+    {% else %}
+        <p class="text">
+            Вы не вошли в аккаунт!!!
+            <a class="text" style="color: #b2b2b2" href="{% url 'login' %}">Войдите</a>
+            или
+            <a class="text" style="color: #b2b2b2" href="{% url 'register' %}">Создайте новый</a>
+        </p>
+    {% endif %}
+
 {% endblock %}

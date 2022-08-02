@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Вход в аккаунт{% endblock %}
+
+{% block content %}
+    <h1 class="text">Залогинься давай</h1>
+
+    <div class="form-account-login">
+        <span class="form-account-control">{{ error }}</span>
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <p class="form-control-text">Никнейм: <br>{{ form.username }}<br></p>
+            <p class="form-control-text">Пароль: <br>{{ form.password }}<br></p>
+            <button class="btn-account-create" style="width: 75px" type="submit">Войти</button>
+        </form>
+        <p class="text"><a class="text" style="color: #b2b2b2" href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+        <p class="text">Нет аккаунта? <a class="text" style="color: #b2b2b2" href="{% url 'register' %}">Создайте новый</a>
+        </p>
+    </div>
+
+{% endblock %}
