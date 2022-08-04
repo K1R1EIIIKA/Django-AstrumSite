@@ -1,5 +1,6 @@
-from django.forms import TextInput, EmailInput, CharField, PasswordInput
+from django.forms import TextInput, EmailInput, CharField, PasswordInput, ModelForm
 from django.contrib.auth.models import User
+from .models import Player
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
 
 
@@ -41,3 +42,21 @@ class Authenticate(AuthenticationForm):
             'class': 'form-account-control',
             'placeholder': 'пароль',
         }))
+
+
+class CreatePlayer(ModelForm):
+    class Meta:
+        model = Player
+        fields = ['username', 'email']
+
+    def __init__(self, *args, **kwargs):
+        super(CreatePlayer, self).__init__(*args, **kwargs)
+
+    username = UsernameField(widget=TextInput(
+        attrs={'class': 'form-account-control',
+               'placeholder': 'ник'
+               }))
+    email = CharField(widget=EmailInput(
+        attrs={'class': 'form-account-control',
+               'placeholder': 'емэйл'
+               }))

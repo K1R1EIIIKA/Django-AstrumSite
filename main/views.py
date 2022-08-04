@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import News
 from django.template.defaulttags import register
 from .forms import NewsForm
@@ -6,7 +6,10 @@ from .forms import NewsForm
 
 def index(request):
     new = News.objects.order_by('-date')
-    return render(request, 'main/index.html', {'news': new})
+    data = {
+        'news': new
+    }
+    return render(request, 'main/index.html', data)
 
 
 def shop(request):
@@ -23,25 +26,31 @@ def about(request):
 
 def news(request):
     new = News.objects.order_by('-date')
-    return render(request, 'main/news/news.html', {'news': new})
+    data = {
+        'news': new
+    }
+    return render(request, 'main/news/news.html', data)
 
 
 def create(request):
-    error = ''
-    if request.method == 'POST':
-        form = NewsForm(request.POST)
-        if form.is_valid():
-            form.save()
+    if not request.user.is_staff:
+        return redirect('home')
+    else:
+        error = ''
+        if request.method == 'POST':
+            form = NewsForm(request.POST)
+            if form.is_valid():
+                form.save()
 
-        else:
-            error = 'Неверная форма'
+            else:
+                error = 'Неверная форма'
 
-    form = NewsForm()
-    data = {
-        'form': form,
-        'error': error
-    }
-    return render(request, 'main/news/create.html', data)
+        form = NewsForm()
+        data = {
+            'form': form,
+            'error': error
+        }
+        return render(request, 'main/news/create.html', data)
 
 
 @register.filter

@@ -1,0 +1,16 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Настройки аккаунта{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1 class="text">настраивайся</h1>
+    {% else %}
+        <p class="text">
+            Вы не вошли в аккаунт!!!
+            <a class="text" style="color: #b2b2b2" href="{% url 'login' %}">Войдите</a>
+            или
+            <a class="text" style="color: #b2b2b2" href="{% url 'register' %}">Создайте новый</a>
+        </p>
+    {% endif %}
+{% endblock %}

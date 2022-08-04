@@ -4,7 +4,7 @@ from django.db import models
 class News(models.Model):
     header = models.CharField('Заголовок', max_length=50)
     body = models.TextField('Основной текст')
-    date = models.DateTimeField('Дата публикации')
+    date = models.DateTimeField('Дата публикации', default='2022-08-04')
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
 
     def __str__(self):
