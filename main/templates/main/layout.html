@@ -20,7 +20,7 @@
         <button onclick="btn()" class="theme-button">Сменить тему</button>
 
         {% if user.is_authenticated %}
-            <a class="nav-account" href="{% url 'profile_detail' user.username %}">
+            <a class="nav-account" href="{% url 'account_home' %}">
                 <div class="account">
                     <img style="border-radius: 15px" src="{% static 'main/img/cute_cat.png' %}" alt="где котик(("
                          height="35px" width="35px">
@@ -44,7 +44,7 @@
             <a class="nav-link" href="{% url 'shop' %}">Магазин</a>
             <a class="nav-link" href="{% url 'about' %}">О нас</a>
             {% if user.is_staff %}
-                <a class="nav-link" href="{% url 'admin' %}">Админка</a>
+                <a class="nav-link" href="/admin">Админка</a>
             {% endif %}
             {% block navbar %}
             {% endblock %}

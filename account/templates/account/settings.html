@@ -5,6 +5,7 @@
 {% block content %}
     {% if user.is_authenticated %}
         <h1 class="text">настраивайся</h1>
+        <p class="text"><a class="text" style="color: #b2b2b2" href="{% url 'password_change' %}">Сменить пароль</a></p>
     {% else %}
         <p class="text">
             Вы не вошли в аккаунт!!!

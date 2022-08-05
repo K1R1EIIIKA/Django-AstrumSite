@@ -6,13 +6,13 @@
     <h1 class="text">срофиль</h1>
     {% if user.is_authenticated %}
         <h1 class="text">Привет, {{ user.username }}</h1>
-        <p class="text"><a class="text" style="color: #b2b2b2" href="{% url 'settings' player.username %}">Настройки</a></p>
+        <p class="text"><a class="text" style="color: #b2b2b2" href="{% url 'settings' %}">Настройки</a></p>
         <p class="text"><a class="text" style="color: #b2b2b2" href="{% url 'logout' %}?next=/">Выйти из аккаунта</a></p>
 
         {{ player.username }}<br>
         {{ player.email }}<br>
         {{ player.date_created }}<br>
-        <a class="text" href="{% url 'profile_detail' player.username %}"></a>
+        <p class="text"><a class="text" style="color: #b2b2b2" href="{% url 'profile_detail' player.username %}">Посмотреть статистику</a></p>
     {% else %}
         <p class="text">
             Вы не вошли в аккаунт!!!

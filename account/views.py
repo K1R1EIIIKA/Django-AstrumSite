@@ -6,6 +6,7 @@ from .models import Player
 from django.shortcuts import get_object_or_404
 
 
+@login_required(login_url='login')
 def account(request):
     if request.user.is_authenticated:
         player_id = request.user.id
@@ -27,12 +28,9 @@ def view_profile(request, username):
 
 
 @login_required(login_url='login')
-def profile_settings(request, username):
-    player = get_object_or_404(Player, username=username)
-    data = {
-        'player': player
-    }
-    return render(request, 'account/settings.html', data)
+def settings(request):
+
+    return render(request, 'account/settings.html')
 
 
 def register(request):

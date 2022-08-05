@@ -4,8 +4,6 @@
 
 {% block content %}
     <h1 class="text">Аккаунт {{ player.username }}</h1>
-    <p class="text"><a class="text" style="color: #b2b2b2" href="{% url 'settings' player.username %}">Настройки</a></p>
-    <p class="text"><a class="text" style="color: #b2b2b2" href="{% url 'logout' %}?next=/">Выйти из аккаунта</a></p>
     <h2>{{ player.username }}</h2>
     <h2>{{ player.email }}</h2>
     <h2>{{ player.date_created }}</h2>
