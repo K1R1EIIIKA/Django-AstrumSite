@@ -81,9 +81,13 @@ body, html {
 /* |  | |___ |___ |__| |__| | \|  |  */
 
 .form-account {
-    background:#EEA5AD;
+    background: #EEA5AD;
 }
 
 .form-account-login {
-    background:#EEA5AD;
+    background: #EEA5AD;
+}
+
+.pch-form-account {
+    background: #EEA5AD;
 }

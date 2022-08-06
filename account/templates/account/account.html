@@ -12,7 +12,7 @@
         {{ player.username }}<br>
         {{ player.email }}<br>
         {{ player.date_created }}<br>
-        <p class="text"><a class="text" style="color: #b2b2b2" href="{% url 'profile_detail' player.username %}">Посмотреть статистику</a></p>
+        <p class="text"><a class="text" style="color: #b2b2b2" href="{% url 'profile_detail' user.username %}">Посмотреть статистику</a></p>
     {% else %}
         <p class="text">
             Вы не вошли в аккаунт!!!

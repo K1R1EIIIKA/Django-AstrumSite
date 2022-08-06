@@ -210,3 +210,17 @@ nav li {
     border-radius: 8px;
     width: 500px;
 }
+
+.pch-form {
+    line-height: 23px;
+    width: 400px;
+    margin-left: 28px;
+}
+
+.pch-form-account {
+    padding: 0 25px 15px 25px;
+    display: block;
+    margin: -5px auto;
+    border-radius: 8px;
+    width: 500px;
+}

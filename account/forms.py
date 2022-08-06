@@ -1,7 +1,7 @@
 from django.forms import TextInput, EmailInput, CharField, PasswordInput, ModelForm
 from django.contrib.auth.models import User
 from .models import Player
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField, PasswordChangeForm
 
 
 class CreateUserForm(UserCreationForm):
@@ -60,3 +60,23 @@ class CreatePlayer(ModelForm):
         attrs={'class': 'form-account-control',
                'placeholder': 'емэйл'
                }))
+
+
+class ChangePasswordForm(PasswordChangeForm):
+    fields = ['old_password', 'new_password1', 'new_password2']
+
+    def __init__(self, *args, **kwargs):
+        super(PasswordChangeForm, self).__init__(*args, **kwargs)
+
+    old_password = CharField(widget=PasswordInput(
+        attrs={
+            'class': 'form-account-control',
+        }))
+    new_password1 = CharField(widget=PasswordInput(
+        attrs={
+            'class': 'form-account-control',
+        }))
+    new_password2 = CharField(widget=PasswordInput(
+        attrs={
+            'class': 'form-account-control',
+        }))

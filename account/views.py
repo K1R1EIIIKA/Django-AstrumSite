@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from .forms import CreateUserForm, Authenticate, CreatePlayer
-from django.contrib.auth import authenticate, login
+from .forms import CreateUserForm, Authenticate, CreatePlayer, ChangePasswordForm
+from django.contrib.auth import authenticate, login, update_session_auth_hash
 from .models import Player
 from django.shortcuts import get_object_or_404
 
@@ -29,8 +29,15 @@ def view_profile(request, username):
 
 @login_required(login_url='login')
 def settings(request):
-
-    return render(request, 'account/settings.html')
+    if request.user.is_authenticated:
+        player_id = request.user.id
+        player = Player.objects.get(id=player_id)
+        data = {
+            'player': player
+        }
+        return render(request, 'account/settings.html', data)
+    else:
+        return redirect('login')
 
 
 def register(request):
@@ -85,3 +92,25 @@ def login_acc(request):
         'error': error
     }
     return render(request, 'registration/login.html', data)
+
+
+def password_change(request):
+    if request.user.is_authenticated:
+        error = ''
+        form = ChangePasswordForm(request.user)
+        if request.method == 'POST':
+            form = ChangePasswordForm(request.user, data=request.POST)
+            if form.is_valid():
+                user = form.save()
+                update_session_auth_hash(request, user)
+                return redirect('account_home')
+            else:
+                error = 'Форма заполнена неверно'
+
+        data = {
+            'form': form,
+            'error': error
+        }
+        return render(request, 'registration/password_change_form.html', data)
+    else:
+        return redirect('login')
