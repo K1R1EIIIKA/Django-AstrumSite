@@ -2,33 +2,74 @@ from django.shortcuts import render, redirect
 from .models import News
 from django.template.defaulttags import register
 from .forms import NewsForm
+from account.funcs import get_player
+
+
+def layout(request):
+    if request.user.is_authenticated:
+        data = {
+            'player': get_player(request.user.id)
+        }
+        return render(request, 'main/layout.html', data)
+    else:
+        return render(request, 'main/layout.html')
 
 
 def index(request):
     new = News.objects.order_by('-date')
-    data = {
-        'news': new
-    }
+    if request.user.is_authenticated:
+        data = {
+            'news': new,
+            'player': get_player(request.user.id)
+        }
+    else:
+        data = {
+            'news': new,
+        }
     return render(request, 'main/index.html', data)
 
 
 def shop(request):
-    return render(request, 'main/shop.html')
+    if request.user.is_authenticated:
+        data = {
+            'player': get_player(request.user.id)
+        }
+        return render(request, 'main/shop.html', data)
+    else:
+        return render(request, 'main/shop.html')
 
 
 def download(request):
-    return render(request, 'main/download.html')
+    if request.user.is_authenticated:
+        data = {
+            'player': get_player(request.user.id)
+        }
+        return render(request, 'main/download.html', data)
+    else:
+        return render(request, 'main/download.html')
 
 
 def about(request):
-    return render(request, 'main/about.html')
+    if request.user.is_authenticated:
+        data = {
+            'player': get_player(request.user.id)
+        }
+        return render(request, 'main/about.html', data)
+    else:
+        return render(request, 'main/about.html')
 
 
 def news(request):
     new = News.objects.order_by('-date')
-    data = {
-        'news': new
-    }
+    if request.user.is_authenticated:
+        data = {
+            'news': new,
+            'player': get_player(request.user.id)
+        }
+    else:
+        data = {
+            'news': new,
+        }
     return render(request, 'main/news/news.html', data)
 
 
@@ -46,10 +87,17 @@ def create(request):
                 error = 'Неверная форма'
 
         form = NewsForm()
-        data = {
-            'form': form,
-            'error': error
-        }
+        if request.user.is_authenticated:
+            data = {
+                'form': form,
+                'error': error,
+                'player': get_player(request.user.id)
+            }
+        else:
+            data = {
+                'form': form,
+                'error': error,
+            }
         return render(request, 'main/news/create.html', data)
 
 

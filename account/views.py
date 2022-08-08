@@ -4,15 +4,14 @@ from .forms import CreateUserForm, Authenticate, CreatePlayer, ChangePasswordFor
 from django.contrib.auth import authenticate, login, update_session_auth_hash, logout
 from .models import Player
 from django.shortcuts import get_object_or_404
+from .funcs import get_player
 
 
 @login_required(login_url='login')
 def account(request):
     if request.user.is_authenticated:
-        player_id = request.user.id
-        player = Player.objects.get(id=player_id)
         data = {
-            'player': player
+            'player': get_player(request.user.id)
         }
         return render(request, 'account/account.html', data)
     else:
@@ -30,10 +29,8 @@ def view_profile(request, username):
 @login_required(login_url='login')
 def settings(request):
     if request.user.is_authenticated:
-        player_id = request.user.id
-        player = Player.objects.get(id=player_id)
         data = {
-            'player': player
+            'player': get_player(request.user.id),
         }
         return render(request, 'account/settings.html', data)
     else:
@@ -86,11 +83,10 @@ def login_acc(request):
                     return redirect('home')
             else:
                 error = 'Неправильно введенные данные'
-
-    data = {
-        'form': form,
-        'error': error
-    }
+        data = {
+            'form': form,
+            'error': error,
+        }
     return render(request, 'registration/login.html', data)
 
 
@@ -110,7 +106,8 @@ def password_change(request):
 
         data = {
             'form': form,
-            'error': error
+            'error': error,
+            'player': get_player(request.user.id)
         }
         return render(request, 'registration/password_change_form.html', data)
     else:
@@ -119,10 +116,36 @@ def password_change(request):
 
 @login_required(login_url='login')
 def password_change_done(request):
-    return render(request, 'registration/password_change_done.html')
+    data = {
+        'player': get_player(request.user.id)
+    }
+    return render(request, 'registration/password_change_done.html', data)
 
 
+@login_required(login_url='login')
 def logout_acc(request):
     if request.user.is_authenticated:
         logout(request)
         return redirect('home')
+
+
+@login_required(login_url='login')
+def avatar_change(request):
+    error = ''
+    if request.user.is_authenticated:
+        pl = get_player(request.user.id)
+        form = CreatePlayer(instance=pl)
+        if request.method == 'POST':
+            form = CreatePlayer(request.POST, request.FILES, instance=pl)
+            if form.is_valid():
+                form.save()
+            else:
+                error = 'Неправильно введенные данные'
+        data = {
+            'player': get_player(request.user.id),
+            'form': form,
+            'error': error
+        }
+        return render(request, 'account/avatar_change.html', data)
+    else:
+        return redirect('login')

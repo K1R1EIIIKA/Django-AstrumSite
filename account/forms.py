@@ -1,4 +1,4 @@
-from django.forms import TextInput, EmailInput, CharField, PasswordInput, ModelForm
+from django.forms import TextInput, EmailInput, CharField, PasswordInput, ModelForm, ImageField
 from django.contrib.auth.models import User
 from .models import Player
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField, PasswordChangeForm
@@ -47,7 +47,7 @@ class Authenticate(AuthenticationForm):
 class CreatePlayer(ModelForm):
     class Meta:
         model = Player
-        fields = ['username', 'email']
+        fields = ['username', 'email', 'profile_pic']
 
     def __init__(self, *args, **kwargs):
         super(CreatePlayer, self).__init__(*args, **kwargs)
@@ -60,6 +60,7 @@ class CreatePlayer(ModelForm):
         attrs={'class': 'form-account-control',
                'placeholder': 'емэйл'
                }))
+    profile_pic = ImageField()
 
 
 class ChangePasswordForm(PasswordChangeForm):
