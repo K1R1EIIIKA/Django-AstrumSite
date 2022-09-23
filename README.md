@@ -1,2 +1,1 @@
-**chman loh**
-djangoooooooooooooooooooooo
+My first Python Django project. Base site.
