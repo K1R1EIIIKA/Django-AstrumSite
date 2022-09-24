@@ -1,1 +1,1 @@
-My first Python Django project. Base site.
+Python Django project. Base site.
